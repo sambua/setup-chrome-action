@@ -65,10 +65,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: dist
-      - name: Install action dependencies
-        run: sudo apt-get update && apt-get install -y unzip
-        if: ${{ matrix.container == 'debian' || matrix.container == 'ubuntu' || matrix.container == 'linuxmintd/mint21-amd64' }}
-
+          
       - name: Install action dependencies
         run: yum install --assumeyes unzip
         if: ${{ matrix.container == 'redhat/ubi9' || matrix.container == 'oraclelinux:9' || matrix.container == 'fedora' }}
